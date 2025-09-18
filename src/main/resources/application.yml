@@ -5,10 +5,16 @@ spring:
     password: secret
   jpa:
     hibernate:
-      ddl-auto: update   # gelişimde 'update', prod'da migration önerilir
+      ddl-auto: create-drop  # gelişimde 'update', prod'da migration önerilir
     properties:
       hibernate:
         format_sql: true
+        show_sql: true
     open-in-view: false
 server:
   port: 8080
+
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
