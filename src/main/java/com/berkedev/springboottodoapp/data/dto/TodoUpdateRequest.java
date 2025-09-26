@@ -16,6 +16,6 @@ public class TodoUpdateRequest {
     
     private String title;
     private String description;
-    private Boolean completed;  // Using Boolean wrapper to allow null (optional update)
+    private Boolean completed;
     private LocalDateTime dueAt;
 }

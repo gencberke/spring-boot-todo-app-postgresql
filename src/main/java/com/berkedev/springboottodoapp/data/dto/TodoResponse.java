@@ -1,7 +1,7 @@
 package com.berkedev.springboottodoapp.data.dto;
 
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -22,7 +22,6 @@ public class TodoResponse {
 
     private LocalDateTime createdAt;
 
-    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime dueAt;
 
 }

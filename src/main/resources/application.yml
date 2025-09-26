@@ -5,12 +5,15 @@ spring:
     password: secret
   jpa:
     hibernate:
-      ddl-auto: create-drop  # gelişimde 'update', prod'da migration önerilir
+      ddl-auto: update  # gelişimde 'update', prod'da migration önerilir
     properties:
       hibernate:
         format_sql: true
         show_sql: true
     open-in-view: false
+  jackson:
+    date-format: "yyyy-MM-dd'T'HH:mm:ss"
+    time-zone: "Europe/Istanbul"
 server:
   port: 8080
 
