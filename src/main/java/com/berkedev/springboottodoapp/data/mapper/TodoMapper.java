@@ -71,7 +71,6 @@ public class TodoMapper {
             return;
         }
 
-        // Only update fields that are not null (partial updates)
         if (updateRequest.getTitle() != null) {
             existingTodo.setTitle(updateRequest.getTitle());
         }

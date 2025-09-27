@@ -44,7 +44,6 @@ public class Todo {
         updatedAt = LocalDateTime.now();
     }
 
-    // Constructor that works with Builder
     public Todo(Builder builder) {
         this.title = builder.title;
         this.description = builder.description;
@@ -54,7 +53,6 @@ public class Todo {
         this.updatedAt = builder.updatedAt;
     }
 
-    // Static method to create a new Builder
     public static Builder builder() {
         return new Builder();
     }

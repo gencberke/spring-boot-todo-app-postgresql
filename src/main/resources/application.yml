@@ -5,7 +5,7 @@ spring:
     password: secret
   jpa:
     hibernate:
-      ddl-auto: update  # gelişimde 'update', prod'da migration önerilir
+      ddl-auto: update  # gelişimde 'update', prod'da migration
     properties:
       hibernate:
         format_sql: true
