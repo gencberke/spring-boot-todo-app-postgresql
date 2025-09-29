@@ -13,8 +13,6 @@ public interface TodoService {
 
     TodoResponse createTodo(Todo todo);
 
-    TodoResponse updateTodoById(Long id, Todo todo);
-    
     TodoResponse updateTodoById(Long id, TodoUpdateRequest updateRequest);
 
     void deleteTodoById(Long id);

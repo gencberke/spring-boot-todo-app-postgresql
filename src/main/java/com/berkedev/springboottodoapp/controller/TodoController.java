@@ -30,7 +30,7 @@ public class TodoController {
     }
 
     /**
-     * GET /api/todos/to-do?id={id} - Get specific to-do by ID
+     * GET /api/todos/todo?id={id} - Get specific to-do by ID
      */
     @GetMapping("/todo")
     public TodoResponse getTodoById(@RequestParam("id") Long id) {
@@ -59,6 +59,7 @@ public class TodoController {
      * PUT /api/todos/{id} - Update existing to-do
      */
     @PutMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
     public TodoResponse updateTodo(@PathVariable Long id, @Valid @RequestBody TodoUpdateRequest updateRequest) {
         return todoService.updateTodoById(id, updateRequest);
     }
@@ -67,6 +68,7 @@ public class TodoController {
      * PATCH /api/todos/{id} - Partially update existing to-do
      */
     @PatchMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
     public TodoResponse patchTodo(@PathVariable Long id, @RequestBody TodoUpdateRequest updateRequest) {
         return todoService.updateTodoById(id, updateRequest);
     }

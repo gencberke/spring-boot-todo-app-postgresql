@@ -90,20 +90,4 @@ public class TodoMapper {
         // updatedAt will be set automatically by @PreUpdate
     }
 
-    /**
-     * Alternative: Convert TodoUpdateRequest to new To-do entity
-     * Usage: When you want to create a completely new entity from update data
-     */
-    public Todo toTodoEntityFromUpdate(TodoUpdateRequest updateRequest) {
-        if (updateRequest == null) {
-            return null;
-        }
-        
-        return Todo.builder()
-                .setTitle(updateRequest.getTitle())
-                .setDescription(updateRequest.getDescription())
-                .setCompleted(updateRequest.getCompleted() != null ? updateRequest.getCompleted() : false)
-                .setDueAt(updateRequest.getDueAt())
-                .build();
-    }
 }

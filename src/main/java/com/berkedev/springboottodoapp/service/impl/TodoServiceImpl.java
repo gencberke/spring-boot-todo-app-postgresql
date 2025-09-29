@@ -33,8 +33,7 @@ public class TodoServiceImpl implements TodoService {
 
     @Override
     public TodoResponse getTodoById(Long id) {
-        Todo todo = todoRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Todo with id of: " + id + " not found"));
+        Todo todo = todoRepository.getTodoById(id);
         return todoMapper.toTodoResponse(todo);
     }
 
@@ -42,21 +41,6 @@ public class TodoServiceImpl implements TodoService {
     public TodoResponse createTodo(Todo todo) {
         Todo savedTodo = todoRepository.saveAndFlush(todo);
         return todoMapper.toTodoResponse(savedTodo);
-    }
-
-    @Override
-    @Transactional
-    public TodoResponse updateTodoById(Long id, Todo todo) {
-        Todo existingTodo = todoRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Todo with id of: " + id + " not found"));
-
-        existingTodo.setTitle(todo.getTitle());
-        existingTodo.setDescription(todo.getDescription());
-        existingTodo.setCompleted(todo.isCompleted());
-        existingTodo.setDueAt(todo.getDueAt());
-
-        Todo updatedTodo = todoRepository.save(existingTodo);
-        return todoMapper.toTodoResponse(updatedTodo);
     }
 
     @Override
@@ -74,7 +58,7 @@ public class TodoServiceImpl implements TodoService {
     @Override
     @Transactional
     public void deleteTodoById(Long id) {
-        todoRepository.delete(todoRepository.findById(id).orElseThrow(
-                () -> new RuntimeException("Todo with id of: " + id + " not found")));
+        todoRepository.delete(todoRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Todo with id of: " + id + " not found")));
     }
 }
