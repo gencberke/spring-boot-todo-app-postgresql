@@ -35,8 +35,8 @@ public class Todo {
     void onCreate() {
         if (createdAt == null) {
             createdAt = LocalDateTime.now();
+            updatedAt = null;
         }
-        updatedAt = null;
     }
 
     @PreUpdate
